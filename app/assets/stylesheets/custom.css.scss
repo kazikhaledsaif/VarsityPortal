@@ -1,0 +1,28 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+.welcome-page-form {
+  width: 100%;
+}
+.sign-up-text {
+  margin-top: 10px;
+}
+.welcome-page-headline-text {
+  font-weight: 900;
+  font-size: 48px;
+  color: #3F3D56;
+}
+.welcome-page-headline-text span {
+  color: #4285F4;
+}
+.login-img{
+  height: 500px;
+  width: 350px;
+}
+.welcome-page-form-wrapper{
+  margin-top: 100px;
+}

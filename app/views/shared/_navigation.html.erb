@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+  <div class="container">
+  <a class="navbar-brand" href="#">Varsity Portal</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to 'Home', root_path , class: 'nav-link' %>
+      </li>
+      <% if current_user.admin %>
+      <li class="nav-item">
+
+        <%= link_to 'Semesters', semesters_path , class: 'nav-link' %>
+
+      </li>
+      <% end %>
+      <% if current_user.admin %>
+      <li class="nav-item">
+        <%= link_to 'Courses', courses_path , class: 'nav-link' %>
+      </li>
+      <% end %>
+
+
+    </ul>
+
+    <span class="navbar-text">
+      <%if current_user %>
+    <span class="mr-4"> <%= current_user.first_name + " "+ current_user.last_name  %></span>
+    <%= link_to 'Log Out', destroy_user_session_path , method: :delete%>
+        <%end %>
+    </span>
+
+
+
+
+
+
+  </div>
+  </div>
+</nav>
