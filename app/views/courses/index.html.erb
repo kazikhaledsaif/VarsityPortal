@@ -1,0 +1,47 @@
+<div class="jumbotron mt-4">
+  <h1 class="display-4">Courses</h1>
+  <p class="lead">Here you can manage all the Courses </p>
+  <hr class="my-4">
+  <p class="lead">
+
+    <%= link_to "Add a New Course", new_course_path, class: "btn btn-primary btn-sm" %>
+  </p>
+</div>
+
+<table  class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">title</th>
+    <th scope="col">credit</th>
+    <th scope="col">code</th>
+    <th scope="col">Action</th>
+
+  </tr>
+  </thead>
+  <tbody>
+
+  <% @courses.each_with_index do |course, index| %>
+    <tr>
+      <td><%=  index+1 %></td>
+      <td><%=  course.title %></td>
+      <td><%=  course.credit %></td>
+      <td><%=  course.code %></td>
+      <td>
+        <%= link_to(course_path(course), class: 'mr-3') do %>
+          <i class="fas fa-search"></i>Show
+        <% end %>
+        <%= link_to(edit_course_path(course), class: 'mr-3') do %>
+          <i class="fas fa-edit"></i>Edit
+        <% end %>
+
+        <%= link_to(course_path(course),method: 'delete', data: { confirm: 'Are you sure?' }, class: '') do %>
+          <i class="far fa-trash-alt "></i>Delete
+        <% end %>
+
+      </td>
+    </tr>
+  <% end %>
+
+  </tbody>
+</table>

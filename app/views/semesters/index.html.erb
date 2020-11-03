@@ -1,0 +1,43 @@
+<div class="jumbotron mt-4">
+  <h1 class="display-4">Semesters</h1>
+  <p class="lead">Here you can manage all the semesters </p>
+  <hr class="my-4">
+  <p class="lead">
+
+    <%= link_to "Add a New Semester", new_semester_path, class: "btn btn-primary btn-sm" %>
+  </p>
+</div>
+
+<table  class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Action</th>
+
+  </tr>
+  </thead>
+  <tbody>
+
+  <% @semesters.each_with_index do |semester, index| %>
+    <tr>
+      <td><%=  index+1 %></td>
+      <td><%=  semester.name %></td>
+      <td>
+        <%= link_to(semester_path(semester), class: 'mr-3') do %>
+          <i class="fas fa-search"></i>Show
+        <% end %>
+        <%= link_to(edit_semester_path(semester), class: 'mr-3') do %>
+          <i class="fas fa-edit"></i>Edit
+        <% end %>
+
+        <%= link_to(semester_path(semester),method: 'delete', data: { confirm: 'Are you sure?' }, class: '') do %>
+          <i class="far fa-trash-alt "></i>Delete
+        <% end %>
+
+      </td>
+    </tr>
+  <% end %>
+
+  </tbody>
+</table>

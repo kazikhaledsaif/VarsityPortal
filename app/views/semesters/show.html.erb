@@ -1,0 +1,16 @@
+<h1><%= @semester.name %></h1>
+
+
+<%= link_to(edit_semester_path(@semester), class: 'mr-3') do %>
+  <i class="fas fa-edit"></i>Edit
+<% end %>
+
+<%= link_to(semester_path(@semester),method: 'delete', data: { confirm: 'Are you sure?' }, class: '') do %>
+  <i class="far fa-trash-alt "></i>Delete
+<% end %>
+
+
+
+ <p>
+   <%= link_to 'Back', semesters_path , class: 'btn btn-primary btn-sm mt-3' %>
+ </p>
