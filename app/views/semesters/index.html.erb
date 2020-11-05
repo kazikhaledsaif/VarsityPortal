@@ -1,6 +1,7 @@
 <div class="jumbotron mt-4">
   <h1 class="display-4">Semesters</h1>
   <p class="lead">Here you can manage all the semesters </p>
+  <p class="lead">Current Semester : <%= @semester.name + " "+ @semester.year   %> </p>
   <hr class="my-4">
   <p class="lead">
 
@@ -13,6 +14,9 @@
   <tr>
     <th scope="col">#</th>
     <th scope="col">Name</th>
+    <th scope="col">Year</th>
+    <th scope="col">Current</th>
+    <th scope="col">Offered Course</th>
     <th scope="col">Action</th>
 
   </tr>
@@ -23,18 +27,33 @@
     <tr>
       <td><%=  index+1 %></td>
       <td><%=  semester.name %></td>
+      <td><%=  semester.year %></td>
+      <td><%=  semester.current %></td>
+      <td><%= 0 %></td>
       <td>
         <%= link_to(semester_path(semester), class: 'mr-3') do %>
-          <i class="fas fa-search"></i>Show
+          <i class="fas fa-search mr-1"></i>Show
         <% end %>
         <%= link_to(edit_semester_path(semester), class: 'mr-3') do %>
-          <i class="fas fa-edit"></i>Edit
+          <i class="fas fa-edit mr-1"></i>Edit
         <% end %>
 
-        <%= link_to(semester_path(semester),method: 'delete', data: { confirm: 'Are you sure?' }, class: '') do %>
-          <i class="far fa-trash-alt "></i>Delete
+        <%= link_to(semester_path(semester),method: 'delete', data: { confirm: 'Are you sure?' }, class: 'mr-3') do %>
+          <i class="far fa-trash-alt mr-1"></i>Delete
         <% end %>
+        ||
 
+        <%if !semester.current %>
+        <%= link_to(current_status_path(semester), class: 'ml-3') do %>
+          <i class="fas fa-check mr-1"></i>Marked as Current
+        <% end %>
+          <%else %>
+          <i class="fas fa-check mr-1  ml-3"></i>Current Semester
+
+          <%end %>
+        <%= link_to(offer_course_path(semester), class: 'ml-3') do %>
+          <i class="fab fa-buffer mr-1"></i>Offer Courses
+        <% end %>
       </td>
     </tr>
   <% end %>
