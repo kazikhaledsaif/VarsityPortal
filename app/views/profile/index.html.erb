@@ -1,0 +1,14 @@
+
+
+
+<div class="jumbotron">
+  <h1 class="display-4">  <%= current_user.first_name + " " + current_user.last_name %> </h1>
+  <p class="lead">Roll: <%= current_user.roll %></p>
+  <p class="lead">Email: <%= current_user.email %></p>
+  <hr class="my-4">
+  <p>To change your profile please click the buttom.</p>
+  <p class="lead">
+  
+    <%= link_to 'Edit profile', edit_user_registration_path  , class: 'btn btn-primary btn-lg' %>
+  </p>
+</div>

@@ -1,0 +1,91 @@
+<h2 class="mt-2">
+ Current Semester : <%= @semester.name + " "+ @semester.year %>
+</h2>
+<p>please select your course for this semester</p>
+<% if flash[:success] %>
+  <div class="alert alert-info alert-dismissible fade show" role="alert">
+    <strong><%= flash[:success] %></strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+<% end %>
+<% if flash[:error] %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong><%= flash[:error] %></strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+<% end %>
+<table  class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">title</th>
+    <th scope="col">credit</th>
+    <th scope="col">code</th>
+    <th scope="col">Action</th>
+
+  </tr>
+  </thead>
+  <tbody>
+
+  <% @semester.courses.each_with_index do |course, index| %>
+    <tr>
+      <td><%=  index+1 %></td>
+      <td><%=  course.title %></td>
+      <td><%=  course.credit %></td>
+      <td><%=  course.code %></td>
+      <td>
+        <%= link_to(add_to_enrollment_path(current_user,course), class: 'mr-3') do %>
+          <i class="fas fa-graduation-cap mr-1"></i>Enroll
+        <% end %>
+
+
+      </td>
+    </tr>
+  <% end %>
+
+  </tbody>
+
+</table>
+
+<h4 class="mt-2">
+  Courses you already registered
+</h4>
+
+<table  class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">title</th>
+    <th scope="col">credit</th>
+    <th scope="col">code</th>
+    <th scope="col">Action</th>
+
+  </tr>
+  </thead>
+  <tbody>
+
+  <% current_user.courses.each_with_index do |course, index| %>
+    <tr>
+      <td><%=  index+1 %></td>
+      <td><%=  course.title %></td>
+      <td><%=  course.credit %></td>
+      <td><%=  course.code %></td>
+      <td>
+        <%= link_to(remove_from_enrollment_path(current_user,course), class: 'mr-3') do %>
+          <i class="fas fa-times mr-1"></i>Remove
+        <% end %>
+
+
+      </td>
+    </tr>
+  <% end %>
+
+  </tbody>
+
+</table>
