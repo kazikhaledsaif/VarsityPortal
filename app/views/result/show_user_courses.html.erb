@@ -1,0 +1,82 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"><%= @user.first_name + " " + @user.last_name %></h1>
+    <p class="lead">Roll : <%= @user.roll %></p>
+    <p class="lead"> Enrolled  <%= @user.courses.count %> Courses in <%= @semester.name + " " +  @semester.year %> </p>
+  </div>
+</div>
+<% if flash[:success] %>
+  <div class="alert alert-info alert-dismissible fade show" role="alert">
+    <strong><%= flash[:success] %></strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+<% end %>
+<% if flash[:error] %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong><%= flash[:error] %></strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+<% end %>
+<div class="container">
+
+
+  <div class="row">
+    <div class="col-6">
+      <h5 class="mt-2">
+        Please give the result in GPA
+
+      </h5>
+    </div>
+    <div class="col-6">
+      <%= link_to 'Back', :back , class: 'btn btn-primary m mt-3  pull-right' %></p>
+
+    </div>
+
+  </div>
+  <table  class="table table-striped mt-3">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Credit</th>
+      <th scope="col">Code</th>
+      <th scope="col">Grade</th>
+      <th scope="col">Action</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <% @user.courses.each_with_index do |course, index| %>
+      <tr>
+        <td><%=  index+1 %></td>
+        <td><%=  course.title %></td>
+        <td><%=  course.credit %></td>
+        <td><%=  course.code %></td>
+        <td>
+          <%=  course.get_result( @user.id, @semester.id, course.id  ) %></td>
+        <td>  <%= form_with url: '/assign_grade', method: "get", local:true, class: "form-inline" do |f| %>
+            <%= f.text_field :marks    , class: 'form-control form-control mr-3' %>
+            <%= hidden_field_tag(:user , @user.id) %>
+            <%= hidden_field_tag(:course,course.id) %>
+            <%= hidden_field_tag(:semester, @semester.id) %>
+
+            <%= f.submit "Assign" , class: "btn btn-secondary btn-xs" %>
+          <% end %>
+
+        </td>
+      </tr>
+    <% end %>
+
+    </tbody>
+
+  </table>
+
+</div>

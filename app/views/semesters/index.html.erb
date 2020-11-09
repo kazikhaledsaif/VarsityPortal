@@ -28,8 +28,14 @@
       <td><%=  index+1 %></td>
       <td><%=  semester.name %></td>
       <td><%=  semester.year %></td>
-      <td><%=  semester.current %></td>
-      <td><%= 0 %></td>
+      <td><%=
+        if  semester.current
+          "Yes"
+        else
+          "No"
+        end
+      %></td>
+      <td><%=  semester.courses.count  %></td>
       <td>
         <%= link_to(semester_path(semester), class: 'mr-3') do %>
           <i class="fas fa-search mr-1"></i>Show

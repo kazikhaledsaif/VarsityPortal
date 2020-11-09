@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_105802) do
+ActiveRecord::Schema.define(version: 2020_11_05_095226) do
 
   create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "title"
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(version: 2020_11_03_105802) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id"], name: "index_enrollments_on_course_id"
     t.index ["user_id"], name: "index_enrollments_on_user_id"
+  end
+
+  create_table "results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "course_id", null: false
+    t.bigint "semester_id", null: false
+    t.string "marks"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_results_on_course_id"
+    t.index ["semester_id"], name: "index_results_on_semester_id"
+    t.index ["user_id"], name: "index_results_on_user_id"
   end
 
   create_table "semester_courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -64,6 +76,9 @@ ActiveRecord::Schema.define(version: 2020_11_03_105802) do
 
   add_foreign_key "enrollments", "courses"
   add_foreign_key "enrollments", "users"
+  add_foreign_key "results", "courses"
+  add_foreign_key "results", "semesters"
+  add_foreign_key "results", "users"
   add_foreign_key "semester_courses", "courses"
   add_foreign_key "semester_courses", "semesters"
 end

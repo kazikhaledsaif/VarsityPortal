@@ -57,37 +57,41 @@
 </div>
 <hr>
 <div>
-  <h5>All Courses</h5>
-  <table  class="table table-striped">
-    <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">title</th>
-      <th scope="col">credit</th>
-      <th scope="col">code</th>
-      <th scope="col">Action</th>
-
-    </tr>
-    </thead>
-    <tbody>
-
-    <% @courses.each_with_index do |course, index| %>
+  <div>
+    <h5>All Courses</h5>
+    <table  class="table table-striped">
+      <thead>
       <tr>
-        <td><%=  index+1 %></td>
-        <td><%=  course.title %></td>
-        <td><%=  course.credit %></td>
-        <td><%=  course.code %></td>
-        <td>
-          <%= link_to(add_offer_course_path(@semester,course), class: 'mr-3') do %>
-            <i class="fas fa-check mr-1"></i>Select
-          <% end %>
+        <th scope="col">#</th>
+        <th scope="col">title</th>
+        <th scope="col">credit</th>
+        <th scope="col">code</th>
+        <th scope="col">Action</th>
 
-
-        </td>
       </tr>
-    <% end %>
+      </thead>
+      <tbody>
 
-    </tbody>
-  </table>
+      <% @courses.each_with_index do |course, index| %>
+        <tr>
+          <td><%=  index+1 %></td>
+          <td><%=  course.title %></td>
+          <td><%=  course.credit %></td>
+          <td><%=  course.code %></td>
+          <td>
+            <%= link_to(add_offer_course_path(@semester,course), class: 'mr-3') do %>
+              <i class="fas fa-check mr-1"></i>Select
+            <% end %>
+
+
+          </td>
+        </tr>
+      <% end %>
+
+      </tbody>
+    </table>
+
+  </div>
+
 
 </div>

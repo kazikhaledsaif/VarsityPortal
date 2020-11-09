@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  match 'result/:user/calculate/', :to => 'result#show_user_courses', :as => 'show_user_courses', :via => :get
+  get 'result', to: 'result#index'
+  get 'assign_grade', to: 'result#assign_grade'
   get 'profile', to: 'profile#index'
   get 'enrollment', to: 'enrollment#index'
   resources :courses

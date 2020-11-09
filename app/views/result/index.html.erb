@@ -1,0 +1,47 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Calculate result for <%= @semester.name + " " + @semester.year %></h1>
+    <p class="lead">Here you can see all list of student of please click one of them and give them the grades.</p>
+  </div>
+</div>
+
+<div class="container">
+
+
+
+  <table  class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Roll</th>
+      <th scope="col">Course Taken</th>
+      <th scope="col">Action</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <% @users.each_with_index do |user, index| %>
+      <tr>
+        <td><%=  index+1 %></td>
+        <td><%=  user.first_name + " " + user.last_name  %></td>
+        <td><%=  user.roll %></td>
+        <td><%=  user.courses.count %></td>
+        <td>
+          <%= link_to(show_user_courses_path(user), class: 'mr-3') do %>
+            <i class="fas fa-poll mr-1"></i> Calculate Result
+          <% end %>
+
+        </td>
+
+
+
+      </tr>
+    <% end %>
+
+    </tbody>
+  </table>
+
+
+</div>

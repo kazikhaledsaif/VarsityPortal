@@ -19,26 +19,26 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e36ab2cc-514a-4671-9876-980888bd10c5" name="Default Changelist" comment="Init">
-      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/semester_courses.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/semester_courses_controller.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/helpers/semester_courses_helper.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/semesters/offer_course.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20201103103800_create_semester_courses.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20201103103924_create_enrollments.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20201103105019_add_year_to_semester.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20201103105802_add_current_to_semester.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/controllers/semester_courses_controller_test.rb" afterDir="false" />
+    <list default="true" id="e36ab2cc-514a-4671-9876-980888bd10c5" name="Default Changelist" comment="Profile and Enrollment">
+      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/result.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/result_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/helpers/result_helper.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/result.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/result/assign_grade.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/result/index.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/result/show_user_courses.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/migrate/20201105095226_create_results.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/controllers/result_controller_test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/fixtures/results.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/models/result_test.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/semesters_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/semesters_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/profile_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/profile_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/course.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/course.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/semester.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/semester.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/semesters/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/semesters/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/profile/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/profile/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/semesters/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/semesters/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/semesters/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/semesters/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/semesters/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/semesters/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/semesters/offer_course.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/semesters/offer_course.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/shared/_navigation.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/shared/_navigation.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
@@ -78,6 +78,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -202,7 +203,11 @@
       <workItem from="1604295239504" duration="16836000" />
       <workItem from="1604377017629" duration="15555000" />
       <workItem from="1604467653087" duration="10120000" />
-      <workItem from="1604550851824" duration="4804000" />
+      <workItem from="1604550851824" duration="12354000" />
+      <workItem from="1604636624881" duration="11042000" />
+      <workItem from="1604816556326" duration="5059000" />
+      <workItem from="1604901553371" duration="1779000" />
+      <workItem from="1604919341183" duration="5031000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1604384864066</created>
@@ -218,7 +223,21 @@
       <option name="project" value="LOCAL" />
       <updated>1604385004052</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Profile and Enrollment">
+      <created>1604566184657</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604566184657</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Profile and Enrollment">
+      <created>1604566194266</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1604566194266</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,49 +270,50 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Init" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init" />
+    <MESSAGE value="Profile and Enrollment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Profile and Enrollment" />
   </component>
   <component name="WindowStateProjectService">
     <state x="526" y="276" key="Github.ShareDialog" timestamp="1604384961023">
       <screen x="0" y="27" width="1366" height="700" />
     </state>
     <state x="526" y="276" key="Github.ShareDialog/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604384961023" />
-    <state width="1320" height="162" key="GridCell.Tab.0.bottom" timestamp="1604485410560">
+    <state width="1320" height="404" key="GridCell.Tab.0.bottom" timestamp="1604913285500">
       <screen x="0" y="27" width="1366" height="700" />
     </state>
-    <state width="1320" height="162" key="GridCell.Tab.0.bottom/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604485410560" />
-    <state width="1320" height="162" key="GridCell.Tab.0.center" timestamp="1604485410559">
+    <state width="1320" height="404" key="GridCell.Tab.0.bottom/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604913285500" />
+    <state width="1320" height="404" key="GridCell.Tab.0.center" timestamp="1604913285500">
       <screen x="0" y="27" width="1366" height="700" />
     </state>
-    <state width="1320" height="162" key="GridCell.Tab.0.center/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604485410559" />
-    <state width="1320" height="162" key="GridCell.Tab.0.left" timestamp="1604485410559">
+    <state width="1320" height="404" key="GridCell.Tab.0.center/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604913285500" />
+    <state width="1320" height="404" key="GridCell.Tab.0.left" timestamp="1604913285499">
       <screen x="0" y="27" width="1366" height="700" />
     </state>
-    <state width="1320" height="162" key="GridCell.Tab.0.left/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604485410559" />
-    <state width="1320" height="162" key="GridCell.Tab.0.right" timestamp="1604485410559">
+    <state width="1320" height="404" key="GridCell.Tab.0.left/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604913285499" />
+    <state width="1320" height="404" key="GridCell.Tab.0.right" timestamp="1604913285500">
       <screen x="0" y="27" width="1366" height="700" />
     </state>
-    <state width="1320" height="162" key="GridCell.Tab.0.right/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604485410559" />
-    <state width="1320" height="162" key="GridCell.Tab.1.bottom" timestamp="1604485410560">
+    <state width="1320" height="404" key="GridCell.Tab.0.right/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604913285500" />
+    <state width="1320" height="404" key="GridCell.Tab.1.bottom" timestamp="1604913285504">
       <screen x="0" y="27" width="1366" height="700" />
     </state>
-    <state width="1320" height="162" key="GridCell.Tab.1.bottom/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604485410560" />
-    <state width="1320" height="162" key="GridCell.Tab.1.center" timestamp="1604485410560">
+    <state width="1320" height="404" key="GridCell.Tab.1.bottom/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604913285504" />
+    <state width="1320" height="404" key="GridCell.Tab.1.center" timestamp="1604913285500">
       <screen x="0" y="27" width="1366" height="700" />
     </state>
-    <state width="1320" height="162" key="GridCell.Tab.1.center/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604485410560" />
-    <state width="1320" height="162" key="GridCell.Tab.1.left" timestamp="1604485410560">
+    <state width="1320" height="404" key="GridCell.Tab.1.center/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604913285500" />
+    <state width="1320" height="404" key="GridCell.Tab.1.left" timestamp="1604913285500">
       <screen x="0" y="27" width="1366" height="700" />
     </state>
-    <state width="1320" height="162" key="GridCell.Tab.1.left/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604485410560" />
-    <state width="1320" height="162" key="GridCell.Tab.1.right" timestamp="1604485410560">
+    <state width="1320" height="404" key="GridCell.Tab.1.left/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604913285500" />
+    <state width="1320" height="404" key="GridCell.Tab.1.right" timestamp="1604913285503">
       <screen x="0" y="27" width="1366" height="700" />
     </state>
-    <state width="1320" height="162" key="GridCell.Tab.1.right/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604485410560" />
-    <state x="278" y="112" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1604385045521">
+    <state width="1320" height="404" key="GridCell.Tab.1.right/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604913285503" />
+    <state x="278" y="112" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1604566200223">
       <screen x="0" y="27" width="1366" height="700" />
     </state>
-    <state x="278" y="112" width="800" height="528" key="Vcs.Push.Dialog.v2/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604385045521" />
+    <state x="278" y="112" width="800" height="528" key="Vcs.Push.Dialog.v2/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604566200223" />
     <state x="1458" y="95" width="1028" height="658" maximized="true" key="dock-window-1" timestamp="1604322357785">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
@@ -308,6 +328,6 @@
     <state x="346" y="48" width="672" height="678" key="search.everywhere.popup/0.27.1366.700/1366.0.1920.1080@0.27.1366.700" timestamp="1604488817791" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/VarsityPortal@Development__VarsityPortal.rcov" NAME="Development: VarsityPortal Coverage Results" MODIFIED="1604485184124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="VarsityPortal" />
+    <SUITE FILE_PATH="coverage/VarsityPortal@Development__VarsityPortal.rcov" NAME="Development: VarsityPortal Coverage Results" MODIFIED="1604902086088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="VarsityPortal" />
   </component>
 </project>

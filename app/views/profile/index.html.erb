@@ -6,9 +6,40 @@
   <p class="lead">Roll: <%= current_user.roll %></p>
   <p class="lead">Email: <%= current_user.email %></p>
   <hr class="my-4">
-  <p>To change your profile please click the buttom.</p>
+  <p>To change your profile please click the button.</p>
   <p class="lead">
-  
+
     <%= link_to 'Edit profile', edit_user_registration_path  , class: 'btn btn-primary btn-lg' %>
   </p>
 </div>
+
+<% if !current_user.admin %>
+<div class="container">
+  <h3> Result for : <span> <%= @semester.name + " "+ @semester.year%> </span></h3>
+  <table class="table table-striped mt-3">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Credit</th>
+      <th scope="col">Code</th>
+      <th scope="col">Result</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <% current_user.courses.each_with_index do |course, index| %>
+      <tr>
+        <td><%=  index+1 %></td>
+        <td><%=  course.title %></td>
+        <td><%=  course.credit %></td>
+        <td><%=  course.code %></td>
+        <td>
+          <%=  course.get_result( current_user.id, @semester.id, course.id  ) %></td>        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<% end %>

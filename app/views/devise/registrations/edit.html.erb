@@ -56,7 +56,10 @@
 
 <h6 class="pt-3">Cancel my account</h6>
 
-<p class="inline-block">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete ,class: 'btn btn-danger  mt-3'%>  <%= link_to 'Back', :back , class: 'btn btn-primary m mt-3  ' %></p>
+<p class="inline-block">Unhappy?
+  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete ,class: 'btn btn-danger  mt-3'%>
+
+  <%= link_to 'Back', :back , class: 'btn btn-primary m mt-3  ' %></p>
 
 </div>
 
